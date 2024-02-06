@@ -1,0 +1,22 @@
+﻿<!---------------SQL query for academic year values STRAT----------------->
+CREATE TABLE YearTable (
+    yearID INT PRIMARY KEY,
+    AcademicYear VARCHAR(9)
+);
+
+DECLARE @startYear INT = 2010;
+DECLARE @endYear INT = 2049;
+
+-- Use a loop to insert entries in intervals of 1 year
+WHILE @startYear <= @endYear
+BEGIN
+    DECLARE @academicYear VARCHAR(9);
+    SET @academicYear = CONCAT(CAST(@startYear AS VARCHAR), '-', CAST((@startYear + 1) % 100 AS VARCHAR));
+
+    INSERT INTO YearTable (yearID, AcademicYear)
+    VALUES
+        ((@startYear - 2010 + 1), @academicYear);
+
+    SET @startYear = @startYear + 1;
+END;
+<!---------------SQL query for academic year values END----------------->
