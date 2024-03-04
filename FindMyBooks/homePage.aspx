@@ -75,7 +75,7 @@
                             <div class="row ml-5">
                                 <p>
                                     Serving hundreds of students every year, we help students buy, sell & share there 
-                            books. Our student-to-student trading platform offer easier than ever ways for students to trade.
+                            books. Our student-to-student book trading platform offer easier than ever ways for students to trade.
                                 </p>
                             </div>
 
@@ -84,7 +84,7 @@
                                     <div class="card mb-3 ml-5 card-inside" style="max-width: 18rem;">
                                         <div class="card-body">
                                             <h1>
-                                                <asp:Label ID="Label1" runat="server" Text="##1001"></asp:Label></h1>
+                                                <asp:Label ID="lblCount" runat="server" Text=""></asp:Label></h1>
                                             <p class="mt-3">Number of transactions of books through our 'FindMyBooks'</p>
                                         </div>
                                     </div>

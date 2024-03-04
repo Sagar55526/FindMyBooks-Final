@@ -29,8 +29,22 @@ namespace FindMyBooks
                         ddlAcademicYear.DataBind();
                     }
                 }
-                ddlAcademicYear.Items.Insert(0, new ListItem("--Select academic year--", "0")); 
+                //conecting tbl_dept_name data table to drop down
+                using (SqlConnection con = new SqlConnection(strcon))
+                {
+                    using (SqlCommand cmd = new SqlCommand("select deptName from tbl_dept_name", con))
+                    {
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        ddlDepartment.DataSource = dt;
+                        ddlDepartment.DataValueField = "deptName";
+                        ddlDepartment.DataBind();
+                    }
+                }
+                ddlAcademicYear.Items.Insert(0, new ListItem("--Select academic year--", "0"));
                 ddlDegree.Items.Insert(0, new ListItem("--Select degree type--", "0"));
+                ddlDepartment.Items.Insert(0, new ListItem("--Select department--", "0"));
             }
         }
 

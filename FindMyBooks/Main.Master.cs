@@ -73,5 +73,13 @@ namespace FindMyBooks
             Response.Write("<script>alert('Log-out successfully.!!!')</script>");
             Response.Redirect("homePage.aspx");
         }
+
+        //btn for user profile.
+        protected void LinkButton7_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("userProfile.aspx");
+        }
+
+        
     }
 }

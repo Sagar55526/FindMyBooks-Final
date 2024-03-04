@@ -85,126 +85,158 @@
             </ol>
         </nav>
     </section>
-    <div class="container-fluid">
+        <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col">
+                <div class="card mt-3 mb-3">
+                    <div class="card-header" style="font-size: larger;">
+                        User profile
+                    </div>
+                    <div class="card-body">
 
-                <div class="tabbable-panel mb-3">
-                    <div class="tabbable-line">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a class="p-5" href="#tab_default_1" data-toggle="tab">User profile</a>
-                            </li>
-                            <li>
-                                <a href="#tab_default_2" data-toggle="tab">User history</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content">
-
-                            <%-- View books section is as follows --%>
-                            <div class="tab-pane" id="tab_default_1">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="card mt-3">
-                                            <div class="card-header" style="font-size: larger;">
-                                                User profile
-                                            </div>
-                                        </div>
-
-
-
-                                        <div class="row">
-                                            <div class="col">
-                                                <center>
-                                                    <hr />
-                                                </center>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label1" runat="server" Text="Academic year :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:DropDownList CssClass="form-control" ID="ddlAcademicYear" placeHolder="Enter academic year" runat="server"></asp:DropDownList>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label2" runat="server" Text="Department/course name :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="txtDepartment" placeHolder="Enter Department name" runat="server"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label3" runat="server" Text="Subject name :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:DropDownList CssClass="form-control" ID="DropDownList1" placeHolder="Enter subject name" runat="server"></asp:DropDownList>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label4" runat="server" Text="Publicaion name :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="TextBox1" placeHolder="Enter publicaion name" runat="server"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label5" runat="server" Text="Book printing :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:DropDownList CssClass="form-control" ID="DropDownList2" placeHolder="Enter subject name" runat="server">
-                                                        <asp:ListItem Value="">Please Select</asp:ListItem>
-                                                        <asp:ListItem>Spiral binding</asp:ListItem>
-                                                        <asp:ListItem>Original copy</asp:ListItem>
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label6" runat="server" Text="Cost :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="TextBox2" placeHolder="Enter Cost" runat="server" TextMode="Number"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label7" runat="server" Text="status of request : (By default 'Available')"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="TextBox3" Text="Available" runat="server" ReadOnly="True"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <asp:Label ID="Label8" runat="server" Text="Image of book :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:FileUpload CssClass="form-control" ID="FileUpload1" runat="server" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-group fa-pull-right mt-3">
-                                                    <asp:Button CssClass="btn btn-success btn-lg" ID="btnRegistration" runat="server" Text="Add book" />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <span class="badge rounded-pill bg-warning mb-2" style="padding: 7px; font-size: 12px;">Personal info</span>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <asp:Label ID="Label1" runat="server" Text="Student first name :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtFirstName" placeHolder="Enter first name" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
-                            <%-- View books END --%>
-
-                            <%-- Add books section is as follows --%>
-                            <div class="tab-pane active" id="tab_default_2">
-
-                                <p>hello there.!!!</p>
-
+                            <div class="col-md-6">
+                                <asp:Label ID="Label2" runat="server" Text="Student last name :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtLastName" placeHolder="Enter last name" runat="server" ReadOnly="True"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <asp:Label ID="Label10" runat="server" Text="Phone number :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtPhone" placeHolder="Enter phone number" runat="server" TextMode="Phone" ReadOnly="True"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <asp:Label ID="Label12" runat="server" Text="E-mail :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtEmail" placeHolder="Enter E-mail" runat="server" TextMode="Email" ReadOnly="True"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <asp:Label ID="Label11" runat="server" Text="Address :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtAddress" placeHolder="Enter address" runat="server" TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
+                                </div>
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <hr />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <span class="badge rounded-pill bg-warning mb-2" style="padding: 7px; font-size: 12px;">Institute info</span>
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-9">
+                                <asp:Label ID="Label3" runat="server" Text="College name :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtCollege" placeHolder="Enter College name" runat="server" ReadOnly="True"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <asp:Label ID="Label4" runat="server" Text="Degree :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:DropDownList cssClass="form-control" ID="ddlDegree"  runat="server" Enabled="False">
+                                        <asp:ListItem Text="B.Tech" Value="B.Tech"></asp:ListItem>
+                                        <asp:ListItem Text="B.Com" Value="B.Com"></asp:ListItem>
+                                        <asp:ListItem Text="B.Sc" Value="B.Sc"></asp:ListItem>
+                                        <asp:ListItem Text="BA" Value="BA"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <asp:Label ID="Label5" runat="server" Text="Course Year :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:DropDownList class="form-control" ID="ddlCourseYear" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <asp:Label ID="Label6" runat="server" Text="Department :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:DropDownList cssClass="form-control" ID="ddlDepartment" Enabled="false" runat="server">
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <hr />
+                                </center>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <span class="badge rounded-pill bg-warning" style="padding: 7px; font-size: 12px;">Login credentials</span>
+                                </center>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <asp:Label ID="Label7" runat="server" Text="Username :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtUserName" placeHolder="Enter Username" runat="server" ReadOnly="True"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <asp:Label ID="Label8" runat="server" Text="Password :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtPassword" placeHolder="Enter Password" runat="server" TextMode="Password"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <asp:Label ID="Label9" runat="server" Text="Confirm password :"></asp:Label>
+                                <div class="form-group">
+                                    <asp:TextBox class="form-control" ID="txtConPassword" placeHolder="Re-enter Password" runat="server" TextMode="Password"></asp:TextBox>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group fa-pull-right mt-3">
+                                    <%--in-built class for capturing whole width of the container--%>
+                                    <asp:Button CssClass="btn btn-success btn-lg" ID="btnRegistration" runat="server" Text="Update" OnClick="btnRegistration_Click" />
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-                    <%-- Add books END --%>
                 </div>
             </div>
         </div>

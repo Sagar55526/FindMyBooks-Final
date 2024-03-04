@@ -127,21 +127,21 @@
                                                 <div class="row">
                                                     <div class="col-md-2">
                                                         <div class="form-control">
-                                                            <asp:RadioButton ID="radiobtnSingleBook" runat="server" GroupName="bookType" OnCheckedChanged="radiobtnSingleBook_CheckedChanged" AutoPostBack="true" />
+                                                            <asp:RadioButton value="1" ID="radiobtnSingleBook" runat="server" GroupName="bookType" OnCheckedChanged="radiobtnSingleBook_CheckedChanged" AutoPostBack="true" />
                                                             <asp:Label runat="server" Text="Single book"></asp:Label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-2">
                                                         <div>
                                                             <div class="form-control">
-                                                                <asp:RadioButton ID="radbtnManyBook" runat="server" GroupName="bookType" OnCheckedChanged="radbtnManyBook_CheckedChanged" AutoPostBack="true" />
+                                                                <asp:RadioButton value="2" ID="radbtnManyBook" runat="server" GroupName="bookType" OnCheckedChanged="radbtnmanybook_checkedchanged" AutoPostBack="true" />
                                                                 <asp:Label runat="server" Text="Multiple book"></asp:Label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="form-group">
-                                                            <asp:TextBox CssClass="form-control" ID="txtTotalBooks" PlaceHolder="Enter number of books" runat="server" TextMode="Number"></asp:TextBox>
+                                                            <asp:TextBox CssClass="form-control" ID="txtTotalBooks" PlaceHolder="Enter number of books want to add." runat="server" TextMode="Number"></asp:TextBox>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -150,82 +150,81 @@
                                         </div>
 
 
+                                        <div class="container-fluid" id="inputContainer" style="visibility:hidden;" runat="server">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <center>
+                                                        <hr />
+                                                    </center>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <asp:Label ID="Label1" runat="server" Text="course year :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:DropDownList CssClass="form-control" ID="ddlAcademicYear" placeHolder="Enter course year" runat="server"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <asp:Label ID="Label2" runat="server" Text="Department/course name :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:DropDownList CssClass="form-control" ID="ddlDeptName" placeHolder="Enter department name" runat="server"></asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <asp:Label ID="Label3" runat="server" Text="Subject name :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:TextBox CssClass="form-control" ID="txtSubjectName" placeHolder="Enter subject name" runat="server"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <asp:Label ID="Label4" runat="server" Text="Publicaion name :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:TextBox CssClass="form-control" ID="txtPublication" placeHolder="Enter publicaion name" runat="server"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                        <div class="row">
-                                            <div class="col">
-                                                <center>
-                                                    <hr />
-                                                </center>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label1" runat="server" Text="course year :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:DropDownList CssClass="form-control" ID="ddlAcademicYear" placeHolder="Enter course year" runat="server"></asp:DropDownList>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <asp:Label ID="Label5" runat="server" Text="Book printing :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:DropDownList CssClass="form-control" ID="ddlBookComment" placeHolder="Enter subject name" runat="server">
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <asp:Label ID="Label6" runat="server" Text="Cost :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:TextBox CssClass="form-control" ID="txtCost" placeHolder="Enter Cost" runat="server" TextMode="Number"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <asp:Label ID="Label7" runat="server" Text="status of request : (By default 'Available')"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:TextBox CssClass="form-control" ID="txtStatus" Text="Available" runat="server" ReadOnly="True"></asp:TextBox>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <asp:Label ID="Label2" runat="server" Text="Department/course name :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:DropDownList CssClass="form-control" ID="ddlDeptName" placeHolder="Enter department name" runat="server"></asp:DropDownList>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <asp:Label ID="Label8" runat="server" Text="Image of book :"></asp:Label>
+                                                    <div class="form-group">
+                                                        <asp:FileUpload CssClass="form-control" ID="FileUploadImg" runat="server" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label3" runat="server" Text="Subject name :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="txtSubjectName" placeHolder="Enter subject name" runat="server"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <asp:Label ID="Label4" runat="server" Text="Publicaion name :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="txtPublication" placeHolder="Enter publicaion name" runat="server"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label5" runat="server" Text="Book printing :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:DropDownList CssClass="form-control" ID="ddlBookComment" placeHolder="Enter subject name" runat="server">
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label6" runat="server" Text="Cost :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="txtCost" placeHolder="Enter Cost" runat="server" TextMode="Number"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <asp:Label ID="Label7" runat="server" Text="status of request : (By default 'Available')"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:TextBox CssClass="form-control" ID="txtStatus" Text="Available" runat="server" ReadOnly="True"></asp:TextBox>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group fa-pull-right mt-3">
+                                                        <asp:Button CssClass="btn btn-success btn-lg" ID="btnReAddBook" runat="server" Text="Add book" OnClick="btnAddBook_Click" />
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <asp:Label ID="Label8" runat="server" Text="Image of book :"></asp:Label>
-                                                <div class="form-group">
-                                                    <asp:FileUpload CssClass="form-control" ID="FileUploadImg" runat="server" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <div class="form-group fa-pull-right mt-3">
-                                                    <asp:Button CssClass="btn btn-success btn-lg" ID="btnReAddBook" runat="server" Text="Add book" OnClick="btnAddBook_Click" />
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
-                                </div>
                             </div>
                         </div>
 
