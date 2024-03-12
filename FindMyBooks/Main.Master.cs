@@ -50,10 +50,10 @@ namespace FindMyBooks
         }
 
         //redirect link for add or view books
-        protected void LinkButton4_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("addViewBooks.aspx"); 
-        }
+        //protected void LinkButton4_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("addViewBooks.aspx"); 
+        //}
 
         //redirect link for admin login
         protected void LinkButton6_Click(object sender, EventArgs e)

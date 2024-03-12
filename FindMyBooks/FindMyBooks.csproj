@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="addViewBooks.aspx" />
+    <Content Include="addBooks.aspx" />
     <Content Include="adminLogin.aspx" />
     <Content Include="CustomStyleSheet.css" />
     <Content Include="homePage.aspx" />
@@ -78,12 +78,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="addViewBooks.aspx.cs">
-      <DependentUpon>addViewBooks.aspx</DependentUpon>
+    <Compile Include="addBooks.aspx.cs">
+      <DependentUpon>addBooks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="addViewBooks.aspx.designer.cs">
-      <DependentUpon>addViewBooks.aspx</DependentUpon>
+    <Compile Include="addBooks.aspx.designer.cs">
+      <DependentUpon>addBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="adminLogin.aspx.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>

@@ -11,35 +11,8 @@ namespace FindMyBooks
 {
 
 
-    public partial class addViewBooks
+    public partial class addBooks
     {
-
-        /// <summary>
-        /// radiobtnSingleBook control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radiobtnSingleBook;
-
-        /// <summary>
-        /// radbtnManyBook control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton radbtnManyBook;
-
-        /// <summary>
-        /// txtTotalBooks control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTotalBooks;
 
         /// <summary>
         /// inputContainer control.
@@ -49,24 +22,6 @@ namespace FindMyBooks
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl inputContainer;
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// ddlAcademicYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAcademicYear;
 
         /// <summary>
         /// Label2 control.
@@ -87,6 +42,24 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.DropDownList ddlDeptName;
 
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// ddlAcademicYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAcademicYear;
+
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -96,13 +69,13 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// txtSubjectName control.
+        /// lstSubjectName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSubjectName;
+        protected global::System.Web.UI.WebControls.ListBox lstSubjectName;
 
         /// <summary>
         /// Label4 control.
@@ -114,13 +87,13 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// txtPublication control.
+        /// lstPublicationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPublication;
+        protected global::System.Web.UI.WebControls.ListBox lstPublicationName;
 
         /// <summary>
         /// Label5 control.
@@ -177,6 +150,24 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.TextBox txtStatus;
 
         /// <summary>
+        /// Label9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+
+        /// <summary>
+        /// TextBox1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+
+        /// <summary>
         /// Label8 control.
         /// </summary>
         /// <remarks>
@@ -195,12 +186,12 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.FileUpload FileUploadImg;
 
         /// <summary>
-        /// btnReAddBook control.
+        /// addBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnReAddBook;
+        protected global::System.Web.UI.WebControls.Button addBtn;
     }
 }
