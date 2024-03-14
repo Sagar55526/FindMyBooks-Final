@@ -68,10 +68,11 @@ namespace FindMyBooks
             Session["role"] = "";
             Session["status"] = "";
 
-            LinkButton4.Visible = false;
+            
 
             Response.Write("<script>alert('Log-out successfully.!!!')</script>");
             Response.Redirect("homePage.aspx");
+            LinkButton4.Visible = false;    //addview books btn
         }
 
         //btn for user profile.
@@ -80,6 +81,16 @@ namespace FindMyBooks
             Response.Redirect("userProfile.aspx");
         }
 
-        
+        //handle event for add/view button 
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("addBooks.aspx");
+        }
+
+        //handler for my books button.
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("myBooks.aspx");
+        }
     }
 }

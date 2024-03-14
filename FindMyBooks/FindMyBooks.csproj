@@ -32,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -71,6 +72,7 @@
     <Content Include="adminLogin.aspx" />
     <Content Include="CustomStyleSheet.css" />
     <Content Include="homePage.aspx" />
+    <Content Include="myBooks.aspx" />
     <Content Include="ReadMe.html" />
     <Content Include="registration.aspx" />
     <Content Include="userLogin.aspx" />
@@ -105,6 +107,13 @@
     </Compile>
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="myBooks.aspx.cs">
+      <DependentUpon>myBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="myBooks.aspx.designer.cs">
+      <DependentUpon>myBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="registration.cs">

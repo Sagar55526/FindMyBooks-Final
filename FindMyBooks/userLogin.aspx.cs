@@ -45,9 +45,9 @@ namespace FindMyBooks
                     {
                         Response.Write("<script>alert('login successful..!!')</script>");   /*not working properly*/
                         Session["username"] = dr.GetValue(10).ToString();
-                        Session["fullname"] = dr.GetValue(0).ToString();
                         Session["role"] = "user";
-                        Session["status"] = dr.GetValue(10).ToString();
+                        Session["status"] = dr.GetValue(10).ToString();     //may be errors are possible here.
+                        Session["stdID"] = dr.GetValue(0).ToString();
                     }
 
                     Response.Redirect("homepage.aspx");

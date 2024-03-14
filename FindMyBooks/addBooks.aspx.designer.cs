@@ -87,13 +87,13 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// lstPublicationName control.
+        /// ddlPublicationName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstPublicationName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPublicationName;
 
         /// <summary>
         /// Label5 control.
@@ -159,13 +159,13 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.Label Label9;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtComment;
 
         /// <summary>
         /// Label8 control.
