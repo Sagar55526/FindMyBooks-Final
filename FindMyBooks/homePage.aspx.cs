@@ -37,7 +37,7 @@ namespace FindMyBooks
                 {
                     con.Open();
                 }
-                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_book_add; ", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_new_book; ", con))
                 {
                     lblCount.Text = cmd.ExecuteScalar().ToString();
                 }

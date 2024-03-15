@@ -75,6 +75,7 @@
     <Content Include="myBooks.aspx" />
     <Content Include="ReadMe.html" />
     <Content Include="registration.aspx" />
+    <Content Include="updateMyBook.aspx" />
     <Content Include="userLogin.aspx" />
     <Content Include="userProfile.aspx" />
     <Content Include="Web.config" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="registration.aspx.designer.cs">
       <DependentUpon>registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="updateMyBook.aspx.cs">
+      <DependentUpon>updateMyBook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="updateMyBook.aspx.designer.cs">
+      <DependentUpon>updateMyBook.aspx</DependentUpon>
     </Compile>
     <Compile Include="userLogin.aspx.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>

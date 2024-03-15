@@ -55,5 +55,17 @@ namespace FindMyBooks
 
             }
         }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //important logic to pass value from one page to another as a string. 
+            Button btnUpdate = (Button)sender;
+
+            GridViewRow row = (GridViewRow)btnUpdate.NamingContainer;
+
+            string bookID = GridView1.DataKeys[row.RowIndex].Value.ToString();
+
+            Response.Redirect("~/updateMyBook.aspx?bookID=" + bookID);
+        }
     }
 }
