@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
                 <li class="breadcrumb-item"><a href="homePage.aspx">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Update Books</li>
+                <li class="breadcrumb-item active" aria-current="page">My Books</li>
             </ol>
         </nav>
     </section>
@@ -25,9 +25,9 @@
                     <asp:BoundField DataField="costBooks" HeaderText="costBooks" SortExpression="costBooks" />
                     <asp:BoundField DataField="status" HeaderText="status" SortExpression="status" />
                     <asp:BoundField DataField="comment" HeaderText="comment" SortExpression="comment" />
-                    <asp:TemplateField HeaderText="Update">
+                    <asp:TemplateField HeaderText="Update/View">
                         <ItemTemplate>
-                            <asp:Button ID="btnUpdate" runat="server" Text="Update" CssClass="btn btn-outline-info" PostBackUrl='<%# "~/updateMyBook.aspx?bookID=" + Eval("bookID") %>' />
+                            <asp:Button ID="btnUpdate" runat="server" Text="Update/View" CssClass="btn btn-outline-info" PostBackUrl='<%# "~/updateMyBook.aspx?bookID=" + Eval("bookID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

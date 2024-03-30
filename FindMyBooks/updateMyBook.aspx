@@ -17,7 +17,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
                 <li class="breadcrumb-item"><a href="homePage.aspx">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Add Books</li>
+                <li class="breadcrumb-item active" aria-current="page">My Books</li>
+                <li class="breadcrumb-item active" aria-current="page">Update Books</li>
             </ol>
         </nav>
     </section>
@@ -36,7 +37,7 @@
                                         <div class="card mt-3">
                                             <div class="card-header" style="font-size: larger;">
                                                 <center>
-                                                    Add Books
+                                                    Update Books
                                                 </center>
                                             </div>
                                         </div>

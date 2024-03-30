@@ -61,17 +61,36 @@ namespace FindMyBooks
             Response.Redirect("userLogin.aspx");
         }
 
+
+
+
         //event handler for "try now" btn.
         //protected void button3_click(object sender, eventargs e)
         //{
-        //    if (session["role"].equals("user"))
-        //    {
-        //        response.redirect("addviewbooks.aspx");
-        //    }
-        //    else
-        //    {
-        //        response.redirect("userlogin.aspx");
-        //    }
-        //}
+            //if (session["role"].equals("user"))
+            //{
+            //    response.redirect("addviewbooks.aspx");
+            //}
+            //else
+            //{
+            //    response.redirect("userlogin.aspx");
+            //}
+//}
+
+
+
+
+//event caller for user try now btn.
+protected void Button3_Click(object sender, EventArgs e)
+        {
+    if (Session["role"].Equals("user"))
+    {
+        Response.Redirect("buyBooks.aspx");
+    }
+    else
+    {   
+        Response.Redirect("userlogin.aspx");
+    }
+}
     }
 }

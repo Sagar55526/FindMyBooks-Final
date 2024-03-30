@@ -92,7 +92,7 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <asp:Button Class="btn btn-outline-success btn-block btn-lg mb-5" ID="Button3" runat="server" Text="Try now" />
+                                    <asp:Button Class="btn btn-outline-success btn-block btn-lg mb-5" ID="Button3" runat="server" Text="Try now" OnClick="Button3_Click" />
                                 </div>
                             </div>
                         </div>

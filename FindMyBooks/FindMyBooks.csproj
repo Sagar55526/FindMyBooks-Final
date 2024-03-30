@@ -70,6 +70,7 @@
   <ItemGroup>
     <Content Include="addBooks.aspx" />
     <Content Include="adminLogin.aspx" />
+    <Content Include="buyBooks.aspx" />
     <Content Include="CustomStyleSheet.css" />
     <Content Include="homePage.aspx" />
     <Content Include="myBooks.aspx" />
@@ -94,6 +95,13 @@
     </Compile>
     <Compile Include="adminLogin.aspx.designer.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="buyBooks.aspx.cs">
+      <DependentUpon>buyBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="buyBooks.aspx.designer.cs">
+      <DependentUpon>buyBooks.aspx</DependentUpon>
     </Compile>
     <Compile Include="homePage.aspx.cs">
       <DependentUpon>homePage.aspx</DependentUpon>

@@ -17,14 +17,14 @@ namespace FindMyBooks
         protected void Page_Load(object sender, EventArgs e)
         {
             string bookID = Request.QueryString["bookID"];
-            getMemberDetailsById(bookID);
+            getBookDetailsById(bookID);
         }
 
 
 
 
         //user defined functions.
-        void getMemberDetailsById(string bookID)
+        void getBookDetailsById(string bookID)
         {
             try
             {
@@ -34,36 +34,34 @@ namespace FindMyBooks
                     {
                         con.Open();
                     }
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_new_book WHERE bookID = @BookID", con))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_new_book WHERE bookID = @bookID", con))
                     {
-                        cmd.Parameters.AddWithValue("@BookID", bookID);
+                        cmd.Parameters.AddWithValue("@bookID", bookID);
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
 
                         if (dt.Rows.Count > 0)
                         {
-
-                            foreach (ListItem item in lstSubjectName.Items)
-                            {
-                                if (item.Value == dt.Rows[0]["full_name"].ToString())
-                                {
-                                    item.Selected = true;
-                                    break; 
-                                }
-                            }
-
-                            if (ddlDeptName.SelectedItem != null || ddlDeptName.SelectedItem != null || ddlDeptName.SelectedItem != null || ddlDeptName.SelectedItem != null)
-                            {
-                                ddlDeptName.SelectedItem.Text = dt.Rows[0]["full_name"].ToString();
-                            
-                            ddlAcademicYear.SelectedItem.Text = dt.Rows[0]["yearID"].ToString();
-                            ddlPublicationName.SelectedItem.Text = dt.Rows[0]["publicationID"].ToString();
-                            ddlBookComment.SelectedItem.Text = dt.Rows[0]["bookCommentID"].ToString();
-                            }
+                            ddlDeptName.SelectedValue = dt.Rows[0]["departmentID"].ToString();
+                            ddlAcademicYear.SelectedValue = dt.Rows[0]["yearID"].ToString();
+                            ddlPublicationName.SelectedValue = dt.Rows[0]["publicationID"].ToString();
+                            ddlBookComment.SelectedValue = dt.Rows[0]["bookCommentID"].ToString();
                             txtCost.Text = dt.Rows[0]["costBooks"].ToString();
                             txtStatus.Text = dt.Rows[0]["status"].ToString();
                             txtComment.Text = dt.Rows[0]["comment"].ToString();
+
+                            foreach (DataRow row in dt.Rows)
+                            {
+                                string selectedSubject = row["full_name"].ToString();
+                                ListItem listItem = lstSubjectName.Items.FindByValue(selectedSubject);
+                                if (listItem != null) 
+                                {
+                                    listItem.Selected = true;
+                                }
+                            }
+
+                           
                         }
                         else
                         {
@@ -77,6 +75,7 @@ namespace FindMyBooks
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+
 
     }
 }
