@@ -22,6 +22,7 @@ namespace FindMyBooks
                 else if (Session["role"].Equals("user"))
                 {
                     LinkButton4.Visible = true;     //add books btn
+                    LinkButton5.Visible = true;     //my books btn
                     LinkButton3.Visible = true;     //Logout btn
                     LinkButton1.Visible = false;    //user log-in btn
                     LinkButton2.Visible = false;    //user sign-up btn

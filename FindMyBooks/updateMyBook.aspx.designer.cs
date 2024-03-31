@@ -60,22 +60,22 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.DropDownList ddlAcademicYear;
 
         /// <summary>
-        /// Label3 control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
 
         /// <summary>
-        /// lstSubjectName control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lstSubjectName;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
 
         /// <summary>
         /// Label4 control.
@@ -186,12 +186,12 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.FileUpload FileUploadImg;
 
         /// <summary>
-        /// addBtn control.
+        /// updateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button addBtn;
+        protected global::System.Web.UI.WebControls.Button updateBtn;
     }
 }

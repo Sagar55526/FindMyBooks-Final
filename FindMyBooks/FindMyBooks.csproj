@@ -79,6 +79,7 @@
     <Content Include="updateMyBook.aspx" />
     <Content Include="userLogin.aspx" />
     <Content Include="userProfile.aspx" />
+    <Content Include="viewBooks.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="userProfile.aspx.designer.cs">
       <DependentUpon>userProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="viewBooks.aspx.cs">
+      <DependentUpon>viewBooks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewBooks.aspx.designer.cs">
+      <DependentUpon>viewBooks.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
