@@ -15,13 +15,13 @@ namespace FindMyBooks
             {
                 if (Session["role"] == null || Session["username"] == null)
                 {
-                    LinkButton4.Visible = false;    //addview books btn
+                    LinkButton4.Visible = false;    //add books btn
                     LinkButton3.Visible = false;    //Logout btn
                     LinkButton7.Visible = false;    //hello user btn
                 }
                 else if (Session["role"].Equals("user"))
                 {
-                    LinkButton4.Visible = true;     //addview books btn
+                    LinkButton4.Visible = true;     //add books btn
                     LinkButton3.Visible = true;     //Logout btn
                     LinkButton1.Visible = false;    //user log-in btn
                     LinkButton2.Visible = false;    //user sign-up btn
@@ -52,7 +52,7 @@ namespace FindMyBooks
         //redirect link for add or view books
         //protected void LinkButton4_Click(object sender, EventArgs e)
         //{
-        //    Response.Redirect("addViewBooks.aspx"); 
+        //    Response.Redirect("addBooks.aspx"); 
         //}
 
         //redirect link for admin login
@@ -67,12 +67,9 @@ namespace FindMyBooks
             Session["fullname"] = "";
             Session["role"] = "";
             Session["status"] = "";
-
-            
-
-            Response.Write("<script>alert('Log-out successfully.!!!')</script>");
+            LinkButton4.Visible = false;    //add books btn
             Response.Redirect("homePage.aspx");
-            LinkButton4.Visible = false;    //addview books btn
+            
         }
 
         //btn for user profile.

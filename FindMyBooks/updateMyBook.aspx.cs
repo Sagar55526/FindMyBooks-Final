@@ -17,62 +17,79 @@ namespace FindMyBooks
         protected void Page_Load(object sender, EventArgs e)
         {
             string bookID = Request.QueryString["bookID"];
-            getBookDetailsById(bookID);
+            GetBookDetailsById(bookID);
+            Filldepartment();
         }
 
 
 
 
         //user defined functions.
-        void getBookDetailsById(string bookID)
+        void GetBookDetailsById(string bookID)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(strcon))
                 {
-                    if (con.State == ConnectionState.Closed)
-                    {
-                        con.Open();
-                    }
+                    con.Open(); // Open connection
+
                     using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_new_book WHERE bookID = @bookID", con))
                     {
                         cmd.Parameters.AddWithValue("@bookID", bookID);
+
                         SqlDataAdapter da = new SqlDataAdapter(cmd);
                         DataTable dt = new DataTable();
                         da.Fill(dt);
 
                         if (dt.Rows.Count > 0)
                         {
-                            ddlDeptName.SelectedValue = dt.Rows[0]["departmentID"].ToString();
-                            ddlAcademicYear.SelectedValue = dt.Rows[0]["yearID"].ToString();
-                            ddlPublicationName.SelectedValue = dt.Rows[0]["publicationID"].ToString();
-                            ddlBookComment.SelectedValue = dt.Rows[0]["bookCommentID"].ToString();
-                            txtCost.Text = dt.Rows[0]["costBooks"].ToString();
-                            txtStatus.Text = dt.Rows[0]["status"].ToString();
-                            txtComment.Text = dt.Rows[0]["comment"].ToString();
+                            DataRow row = dt.Rows[0];
 
-                            foreach (DataRow row in dt.Rows)
+                            ddlDeptName.SelectedValue = row["departmentID"].ToString();
+                            ddlAcademicYear.SelectedValue = row["yearID"].ToString();
+                            ddlPublicationName.SelectedValue = row["publicationID"].ToString();
+                            ddlBookComment.SelectedValue = row["bookCommentID"].ToString();
+                            txtCost.Text = row["costBooks"].ToString();
+                            txtStatus.Text = row["status"].ToString();
+                            txtComment.Text = row["comment"].ToString();
+
+                            foreach (DataRow subjectRow in dt.Rows)
                             {
-                                string selectedSubject = row["full_name"].ToString();
+                                string selectedSubject = subjectRow["full_name"].ToString();
                                 ListItem listItem = lstSubjectName.Items.FindByValue(selectedSubject);
-                                if (listItem != null) 
+                                if (listItem != null)
                                 {
                                     listItem.Selected = true;
                                 }
                             }
-
-                           
                         }
                         else
                         {
-                            Response.Write("<script>alert('No data found for the specified bookID');</script>");
+                            ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('No data found for the specified bookID');", true);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+            }
+        }
+
+        private void Filldepartment()
+        {
+            using (SqlConnection con = new SqlConnection(strcon))
+            {
+                using (SqlCommand cmd = new SqlCommand("select deptID, deptName from tbl_dept_name", con))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    ddlAcademicYear.DataSource = dt;
+                    ddlAcademicYear.DataValueField = "deptID";
+                    ddlAcademicYear.DataTextField = "deptName";
+                    ddlAcademicYear.DataBind();
+                }
             }
         }
 

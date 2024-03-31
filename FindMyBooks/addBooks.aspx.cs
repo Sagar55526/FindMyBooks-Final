@@ -95,7 +95,7 @@ namespace FindMyBooks
             string bookCommentID = ddlBookComment.SelectedValue ?? "";
             string costBooks = txtCost.Text.Trim();
             string status = txtStatus.Text.Trim();
-            string comment = txtComment.Text.Trim();
+            string comment = txtComment.Text.Trim(); 
             List<string> selectedBooks = new List<string>();
 
             for (int i = 0; i < lstSubjectName.Items.Count; i++)
@@ -110,8 +110,8 @@ namespace FindMyBooks
             {
                 string subjectBooks = string.Join(",", selectedBooks);
 
-                SqlCommand cmd = new SqlCommand("INSERT INTO tbl_new_book(departmentID, yearID, subjectBook, publicationID, bookCommentID, costBooks, status, comment, stdID) " +
-                    "VALUES(@departmentID, @yearID, @subjectBook, @publicationID, @bookCommentID, @costBooks, @status, @comment, @stdID)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO tbl_new_book(departmentID, yearID, subjectBook, publicationID, bookCommentID, costBooks, status, comment, stdID, date) " +
+                    "VALUES(@departmentID, @yearID, @subjectBook, @publicationID, @bookCommentID, @costBooks, @status, @comment, @stdID, @date)", con);
 
                 cmd.Parameters.AddWithValue("@departmentID", departmentID);
                 cmd.Parameters.AddWithValue("@yearID", yearID);
@@ -121,7 +121,8 @@ namespace FindMyBooks
                 cmd.Parameters.AddWithValue("@costBooks", costBooks);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@comment", comment);
-                cmd.Parameters.AddWithValue("@stdID", stdID);
+                cmd.Parameters.AddWithValue("@stdID", stdID); 
+                cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/MM/yyyy"));
 
                 cmd.ExecuteNonQuery();
                 con.Close();

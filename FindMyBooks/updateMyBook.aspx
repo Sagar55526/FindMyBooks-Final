@@ -17,7 +17,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
                 <li class="breadcrumb-item"><a href="homePage.aspx">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">My Books</li>
+                <li class="breadcrumb-item active" aria-current="page"><a href="myBooks.aspx">My Books</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Update Books</li>
             </ol>
         </nav>
@@ -53,26 +53,26 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <asp:Label ID="Label2" runat="server" Text="Department/course name :"></asp:Label>
+                                                    <asp:Label ID="Label2" runat="server" Text="Department/Course Name :"></asp:Label>
                                                     <div class="form-group">
                                                         <asp:DropDownList CssClass="form-control" ID="ddlDeptName" runat="server" ></asp:DropDownList>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <asp:Label ID="Label1" runat="server" Text="course year :"></asp:Label>
+                                                    <asp:Label ID="Label1" runat="server" Text="Course Year :"></asp:Label>
                                                     <div class="form-group">
                                                         <asp:DropDownList CssClass="form-control" ID="ddlAcademicYear" runat="server" ></asp:DropDownList>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <asp:Label ID="Label3" runat="server" Text="Subject name :"></asp:Label>
+                                                    <asp:Label ID="Label3" runat="server" Text="Subject Name :"></asp:Label>
                                                     <div class="form-group">
                                                         <asp:ListBox CssClass="form-control" ID="lstSubjectName" SelectionMode="Multiple" runat="server" ></asp:ListBox>
 <%--                                                    <asp:DropDownList CssClass="form-control" ID="ddlSubjectName" runat="server"></asp:DropDownList>--%>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <asp:Label ID="Label4" runat="server" Text="Publicaion name :"></asp:Label>
+                                                    <asp:Label ID="Label4" runat="server" Text="Publicaion Name :"></asp:Label>
                                                     <div class="form-group">
                                                         <asp:DropDownList CssClass="form-control" ID="ddlPublicationName" runat="server"></asp:DropDownList>
                                                     </div>
