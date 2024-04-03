@@ -101,7 +101,7 @@
                                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FindMyBooksConnectionString %>" SelectCommand="SELECT [subjectBookList] FROM [subject_book_list_tbl]"></asp:SqlDataSource>
                                                 <asp:GridView class="table table-striped table-bordered table-condensed" ID="GridView1" runat="server" AutoGenerateColumns="False" >
                                                     <Columns>
-                                                        <asp:BoundField DataField="subjectBookList" HeaderText="subjectBookList" SortExpression="subjectBookList" HeaderStyle-CssClass="GridHeader" />
+                                                        <asp:BoundField DataField="subjectBookList" HeaderText="Subject Book List" SortExpression="subjectBookList" HeaderStyle-CssClass="GridHeader" />
                                                     </Columns>
                                                 </asp:GridView>
                                             </div>

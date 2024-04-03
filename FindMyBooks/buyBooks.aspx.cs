@@ -46,8 +46,8 @@ namespace FindMyBooks
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
-                GridView1.DataSource = dt;
-                GridView1.DataBind();
+                gridview1.DataSource = dt;
+                gridview1.DataBind();
 
 
             }

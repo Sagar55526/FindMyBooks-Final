@@ -19,19 +19,19 @@
         </nav>
     </section>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FindMyBooksConnectionString %>" SelectCommand="SELECT [subjectBook], [publicationID], [bookCommentID], [costBooks], [departmentID], [yearID] FROM [tbl_new_book]"></asp:SqlDataSource>
-    <asp:GridView class="table table-striped table-bordered table-condensed" ID="GridView1" runat="server" AutoGenerateColumns="False">
-        <Columns>
-            <asp:BoundField DataField="subjectBook" HeaderText="subjectBook" SortExpression="subjectBook" HeaderStyle-CssClass="GridHeader" />
-            <asp:BoundField DataField="costBooks" HeaderText="costBooks" SortExpression="costBooks" HeaderStyle-CssClass="GridHeader" />
-            <asp:BoundField DataField="departmentID" HeaderText="departmentID" SortExpression="departmentID" HeaderStyle-CssClass="GridHeader" />
-            <asp:BoundField DataField="yearID" HeaderText="yearID" SortExpression="yearID" HeaderStyle-CssClass="GridHeader" />
-            <asp:TemplateField HeaderText="View" HeaderStyle-CssClass="GridHeader">
-                        <ItemTemplate>
-                            <asp:Button ID="btnView" runat="server" Text="View" CssClass="btn btn-block btn-outline-info" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+    <asp:sqldatasource id="sqldatasource1" runat="server" connectionstring="<%$ connectionstrings:findmybooksconnectionstring %>" selectcommand="select [subjectbook], [publicationid], [bookcommentid], [costbooks], [departmentid], [yearid] from [tbl_new_book]"></asp:sqldatasource>
+    <asp:gridview class="table table-striped table-bordered table-condensed" id="gridview1" runat="server" autogeneratecolumns="false">
+        <columns>
+            <asp:boundfield datafield="subjectbook" headertext="subject book" sortexpression="subjectbook" headerstyle-cssclass="gridheader" />
+            <asp:boundfield datafield="costbooks" headertext="cost" sortexpression="costbooks" headerstyle-cssclass="gridheader" />
+            <asp:boundfield datafield="departmentid" headertext="department" sortexpression="departmentid" headerstyle-cssclass="gridheader" />
+            <asp:boundfield datafield="yearid" headertext="year" sortexpression="yearid" headerstyle-cssclass="gridheader" />
+            <asp:templatefield headertext="view" headerstyle-cssclass="gridheader">
+                        <itemtemplate>
+                            <asp:button id="btnview" runat="server" text="view" cssclass="btn btn-block btn-outline-info" PostBackUrl='<%# "~/viewBooks.aspx?bookID=" + Eval("bookID") %>' />
+                        </itemtemplate>
+                    </asp:templatefield>
+        </columns>
+    </asp:gridview>
 
 </asp:Content>
