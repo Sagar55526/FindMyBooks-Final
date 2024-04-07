@@ -19,10 +19,7 @@ namespace FindMyBooks
             if (!this.IsPostBack)
             {
                 getBookstoBuy();
-            }
-            else
-            {
-
+                
             }
         }
 
@@ -56,6 +53,9 @@ namespace FindMyBooks
                 Response.Write("<script>alert('" + ex.Message + "');</script>");
 
             }
+            //Required for jQuery DataTables to work.
+            gridview1.UseAccessibleHeader = true;
+            gridview1.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
     }
 }

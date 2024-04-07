@@ -47,9 +47,9 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <asp:Label ID="Label10" runat="server" Text="Phone number :"></asp:Label>
+                                <asp:Label ID="Label10" runat="server" Text="Phone Number/Username :"></asp:Label>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="txtPhone" placeHolder="Enter phone number" runat="server" TextMode="Phone"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="txtPhone" placeHolder="Enter phone number as your username" runat="server" TextMode="Number"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -121,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <%-- <div class="row">
                             <div class="col">
                                 <center>
                                     <hr />
@@ -136,11 +136,11 @@
                                 </center>
                             </div>
                         </div>
-                        <div class="row">
+                       <div class="row">
                             <div class="col-md-4">
                                 <asp:Label ID="Label7" runat="server" Text="Username :"></asp:Label>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="txtUserName" placeHolder="Enter Username" runat="server"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="txtUserName" placeHolder="Enter Username" runat="server" ReadOnly="True"></asp:TextBox>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -155,13 +155,13 @@
                                     <asp:TextBox class="form-control" ID="txtConPassword" placeHolder="Re-enter Password" runat="server" TextMode="Password"></asp:TextBox>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
                         <div class="row">
                             <div class="col">
                                 <div class="form-group fa-pull-right mt-3">
                                     <%--in-built class for capturing whole width of the container--%>
-                                    <asp:Button CssClass="btn btn-success btn-lg" ID="btnRegistration" runat="server" Text="Register" OnClick="btnRegistratino_click" />
+                                    <asp:Button CssClass="btn btn-success btn-lg" ID="btnRegistration" runat="server" Text="Submit" OnClick="btnRegistration_click" />
                                 </div>
                             </div>
                         </div>

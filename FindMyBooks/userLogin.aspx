@@ -38,7 +38,7 @@
                             <div class="col">
                                 <asp:Label ID="Label1" runat="server" Text="Username"></asp:Label>
                                 <div class="form-group">
-                                    <asp:TextBox class="form-control" ID="txtUserNAme" placeHolder="Username" runat="server"></asp:TextBox>
+                                    <asp:TextBox class="form-control" ID="txtUserName" placeHolder="Username" runat="server"></asp:TextBox>
                                 </div>
                             </div>
                         </div>

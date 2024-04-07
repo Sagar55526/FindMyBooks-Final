@@ -282,7 +282,7 @@ namespace FindMyBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCourseYear;
+        protected global::System.Web.UI.WebControls.TextBox ddlCourseYear;
 
         /// <summary>
         /// Label16 control.
@@ -300,15 +300,15 @@ namespace FindMyBooks
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
+        protected global::System.Web.UI.WebControls.TextBox ddlDepartment;
 
         /// <summary>
-        /// btnRegistration control.
+        /// addBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistration;
+        protected global::System.Web.UI.WebControls.Button addBtn;
     }
 }

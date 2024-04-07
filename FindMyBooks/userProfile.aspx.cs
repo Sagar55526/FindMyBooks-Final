@@ -109,8 +109,8 @@ namespace FindMyBooks
                 cmd.Parameters.AddWithValue("@stdDegree", ddlCourseYear.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@stdYear", ddlCourseYear.SelectedItem.Text);
                 cmd.Parameters.AddWithValue("@stdDept", ddlDepartment.SelectedItem.Text);
-                cmd.Parameters.AddWithValue("@stdUserName", txtUserName.Text.Trim()); 
-                cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
+                //cmd.Parameters.AddWithValue("@stdUserName", txtUserName.Text.Trim()); 
+                //cmd.Parameters.AddWithValue("@password", txtPassword.Text.Trim());
 
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -153,7 +153,7 @@ namespace FindMyBooks
                         ddlDegree.Text = dt.Rows[0]["stdDegree"].ToString();
                         ddlCourseYear.Text = dt.Rows[0]["stdYear"].ToString();
                         ddlDepartment.Text = dt.Rows[0]["stdDept"].ToString();
-                        txtUserName.Text = dt.Rows[0]["stdUserName"].ToString();
+                        //txtUserName.Text = dt.Rows[0]["stdUserName"].ToString();
                     }
                 }
             }

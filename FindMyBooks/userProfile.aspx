@@ -191,7 +191,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <%--<div class="row">
                             <div class="col">
                                 <center>
                                     <hr />
@@ -225,7 +225,7 @@
                                     <asp:TextBox class="form-control" ID="txtConPassword" placeHolder="Re-enter Password" runat="server" TextMode="Password"></asp:TextBox>
                                 </div>
                             </div>
-                        </div>
+                        </div>--%>
 
                         <div class="row">
                             <div class="col">

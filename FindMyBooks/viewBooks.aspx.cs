@@ -8,19 +8,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Newtonsoft.Json;
+using Razorpay.Api;
 
 namespace FindMyBooks
 {
     public partial class viewBooks : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
+        private const string _key = "rzp_test_fXXypA013Rnzbs";
+        private const string _secret = "MyGqg0QmNhGe8aHHRFMH2zqH";
+        private const decimal registrationAmount = 1;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {  
             if (!IsPostBack)
             {
+                txtCost.Text = registrationAmount.ToString();
+
                 // Execute this code only if the page is loaded for the first time
                 string bookID = Request.QueryString["bookID"]; 
-                //string stdID = Request.QueryString["stdID"];
                 getSubjectList(bookID);
                 getBookDetailsById(bookID);
                 getMemberDetailsById(bookID);
@@ -111,7 +117,6 @@ namespace FindMyBooks
                         cmd.Parameters.AddWithValue("@bookID", bookID);
                         try
                         {
-                            con.Open();
                             stdID = (Int32)cmd.ExecuteScalar();
                         }
                         catch (Exception ex)
@@ -119,63 +124,83 @@ namespace FindMyBooks
                             Console.WriteLine(ex.Message);
                         }
                     }
-                    //using (SqlCommand cmd = new SqlCommand("select * from tbl_user_master where stdID = @stdID", con))
-                    //{
-                    //    cmd.Parameters.AddWithValue("@stdID", stdID);
-                    //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    //    DataTable dt = new DataTable();
-                    //    da.Fill(dt);
-
-                    //    txtFirstName.Text = dt.Rows[0]["stdFirstName"].ToString();
-                    //    txtLastName.Text = dt.Rows[0]["stdLastName"].ToString();
-                    //    txtPhone.Text = dt.Rows[0]["stdPhoneNo"].ToString();
-                    //    txtEmail.Text = dt.Rows[0]["stdEmail"].ToString();
-                    //    txtCollege.Text = dt.Rows[0]["stdCollege"].ToString();
-                    //    ddlDegree.Text = dt.Rows[0]["stdDegree"].ToString();
-                    //    ddlCourseYear.Text = dt.Rows[0]["stdYear"].ToString();
-                    //    ddlDepartment.Text = dt.Rows[0]["stdDept"].ToString();
-                    //}
-                    if (stdID != 0)
+                    using (SqlCommand cmd = new SqlCommand("select * from tbl_user_master where stdID = @stdID", con))
                     {
-                        // Execute the query to fetch data from tbl_user_master only if stdID is not 0
-                        using (SqlCommand cmd = new SqlCommand("select * from tbl_user_master where stdID = @stdID", con))
-                        {
-                            cmd.Parameters.AddWithValue("@stdID", stdID);
-                            SqlDataAdapter da = new SqlDataAdapter(cmd);
-                            DataTable dt = new DataTable();
-                            da.Fill(dt);
+                        cmd.Parameters.AddWithValue("@stdID", stdID);
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                            if (dt.Rows.Count > 0)
-                            {
-                                txtFirstName.Text = dt.Rows[0]["stdFirstName"].ToString();
-                                txtLastName.Text = dt.Rows[0]["stdLastName"].ToString();
-                                txtPhone.Text = dt.Rows[0]["stdPhoneNo"].ToString();
-                                txtEmail.Text = dt.Rows[0]["stdEmail"].ToString();
-                                txtCollege.Text = dt.Rows[0]["stdCollege"].ToString();
-                                ddlDegree.Text = dt.Rows[0]["stdDegree"].ToString();
-                                ddlCourseYear.Text = dt.Rows[0]["stdYear"].ToString();
-                                ddlDepartment.Text = dt.Rows[0]["stdDept"].ToString();
-                            }
-                            else
-                            {
-                                // Handle case when no rows are returned
-                                Response.Write("<script>alert('No data found for stdID: " + stdID + "');</script>");
-                            }
-                        }
-                    }
-                    else
-                    {
-                        // Handle case when stdID is 0
-                        Response.Write("<script>alert('Invalid stdID');</script>");
+                        txtFirstName.Text = dt.Rows[0]["stdFirstName"].ToString();
+                        txtLastName.Text = dt.Rows[0]["stdLastName"].ToString();
+                        txtPhone.Text = dt.Rows[0]["stdPhoneNo"].ToString();
+                        txtEmail.Text = dt.Rows[0]["stdEmail"].ToString();
+                        txtCollege.Text = dt.Rows[0]["stdCollege"].ToString();
+                        ddlDegree.Text = dt.Rows[0]["stdDegree"].ToString();
+                        ddlCourseYear.Text = dt.Rows[0]["stdYear"].ToString();
+                        ddlDepartment.Text = dt.Rows[0]["stdDept"].ToString();
                     }
 
                 }
             }
             catch (Exception ex)
             {
-                Response.Write("<script>alert('" + ex.Message + "');</script>");
+                //Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
+
+
+
+        //event handler for buy books btn.
+        protected void addBtn_Click(object sender, EventArgs e)
+        {
+            decimal amountinSubunits = decimal.Parse(txtCost.Text) * 100;
+            string currency = "INR";
+            string name = "FindMyBooks";
+            string description = "Razorpay Payment Gateway Demo";
+            string imageLogo = "";
+            string firstName = txtFirstName.Text;
+            string profileEmail = txtEmail.Text;
+            Dictionary<string, string> notes = new Dictionary<string, string>()
+    {
+        { "note 1", "this is a payment note" }, { "note 2", "here another note, you can add max 15 notes" }
+    };
+
+            string orderId = CreateOrder(amountinSubunits, currency, notes);
+
+            string jsFunction = "OpenPaymentWindow('" + _key + "', '" + amountinSubunits + "', '" + currency + "', '" + name + "', '" + description + "', '" + imageLogo + "', '" + orderId + "', '" + firstName + "', '" + profileEmail + "', '" + profileEmail + "', '" + JsonConvert.SerializeObject(notes) + "');";
+            ClientScript.RegisterStartupScript(this.GetType(), "OpenPaymentWindow", jsFunction, true);
+        }
+
+
+
+        private string CreateOrder(decimal amountinSubunits, string currency, Dictionary<string, string> notes)
+        {
+            try
+            {
+                int paymentCapture = 1;
+
+                RazorpayClient client = new RazorpayClient(_key, _secret);
+                Dictionary<string, object> options = new Dictionary<string, object>();
+                options.Add("amount", amountinSubunits);
+                options.Add("currency", currency);
+                options.Add("payment_capture", paymentCapture);
+                options.Add("notes", notes);
+
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                System.Net.ServicePointManager.Expect100Continue = false;
+
+                Order orderResponse = client.Order.Create(options);
+                var orderId = orderResponse.Attributes["id"].ToString();
+                return orderId;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
 
         private void Filldepartment()
         {
@@ -246,5 +271,6 @@ namespace FindMyBooks
             }
         }
 
+        
     }
 }

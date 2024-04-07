@@ -21,15 +21,15 @@
     <section>
         <div class="card mt-3 mb-3">
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FindMyBooksConnectionString %>" SelectCommand="SELECT * FROM [tbl_new_book]"></asp:SqlDataSource>
-            <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView class="table table-striped table-bordered gridview2 hover cell-border stripe ui celled table" ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
                 <Columns>
-                    <asp:BoundField DataField="subjectBook" HeaderText="subjectBook" SortExpression="subjectBook" HeaderStyle-CssClass="GridHeader">
+                    <asp:BoundField DataField="subjectBook" HeaderText="Subject Book" SortExpression="subjectBook" HeaderStyle-CssClass="GridHeader">
                         <HeaderStyle CssClass="GridHeader"></HeaderStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="costBooks" HeaderText="costBooks" SortExpression="costBooks" HeaderStyle-CssClass="GridHeader">
+                    <asp:BoundField DataField="costBooks" HeaderText="Cost Books" SortExpression="costBooks" HeaderStyle-CssClass="GridHeader">
                         <HeaderStyle CssClass="GridHeader"></HeaderStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="status" HeaderText="status" SortExpression="status" HeaderStyle-CssClass="GridHeader">
+                    <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" HeaderStyle-CssClass="GridHeader">
                         <HeaderStyle CssClass="GridHeader"></HeaderStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="date" HeaderText="Date" SortExpression="date" HeaderStyle-CssClass="GridHeader" />
@@ -42,5 +42,13 @@
                 </Columns>
             </asp:GridView>
     </section>
+
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".gridview2").prepend($("<thead></thead>").append($(this).find("tr:first"))).DataTable();
+        });
+    </script>
 
 </asp:Content>
