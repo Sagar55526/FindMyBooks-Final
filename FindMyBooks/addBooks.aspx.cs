@@ -121,8 +121,9 @@ namespace FindMyBooks
                 cmd.Parameters.AddWithValue("@costBooks", costBooks);
                 cmd.Parameters.AddWithValue("@status", status);
                 cmd.Parameters.AddWithValue("@comment", comment);
-                cmd.Parameters.AddWithValue("@stdID", stdID); 
+                cmd.Parameters.AddWithValue("@stdID", stdID);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/MM/yyyy"));
+
 
                 cmd.ExecuteNonQuery();
                 con.Close();

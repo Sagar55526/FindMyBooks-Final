@@ -26,6 +26,7 @@ namespace FindMyBooks
                 FillBookComment();
                 temp(bookID);
                 GetBookDetailsById(bookID);
+                soldBooksStatus(bookID);
             }
         }
 
@@ -71,6 +72,44 @@ namespace FindMyBooks
 
 
         //user defined functions.
+
+
+        void soldBooksStatus(string bookID)
+        {
+            try
+            {
+                string status = ""; 
+
+                using (SqlConnection con = new SqlConnection(strcon))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT status FROM tbl_new_book WHERE bookID = @bookID", con))
+                    {
+                        cmd.Parameters.AddWithValue("@bookID", bookID);
+
+                        status = cmd.ExecuteScalar() as string;
+                    }
+                }
+                if (status == "Sold")
+                {
+                    ddlBookComment.Enabled = false;
+                    ddlPublicationName.Enabled = false;
+                    txtCost.ReadOnly = true;
+                    txtComment.ReadOnly = true;
+                    ddlAcademicYear.Enabled = false;
+                    ddlDeptName.Enabled = false;
+                    updateBtn.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('" + ex.Message + "');", true);
+            }
+        }
+
+
+
+
         void GetBookDetailsById(string bookID)
         {
             try

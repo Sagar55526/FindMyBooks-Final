@@ -90,7 +90,10 @@
             <div class="col">
                 <div class="card mt-3 mb-3">
                     <div class="card-header" style="font-size: larger;">
-                        User profile
+                        User profile status :
+                        <span class="badge rounded-pill bg-success mb-2 ml-5" style="padding: 7px; font-size: 15px; width: 120px; color:white;">
+                            <asp:Label ID="lblStatus" runat="server" Text="Active"></asp:Label>
+                        </span>
                     </div>
                     <div class="card-body">
 

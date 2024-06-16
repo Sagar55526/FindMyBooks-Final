@@ -80,7 +80,13 @@
 
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton5" runat="server" style="color:white; font-size:larger;" OnClick="LinkButton5_Click" Visible="False">My books</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="LinkButton5" runat="server" style="color:white; font-size:larger;" OnClick="LinkButton5_Click" Visible="False">My Books</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton9" runat="server" style="color:white; font-size:larger;" Visible="False" OnClick="LinkButton9_Click">User List</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton8" runat="server" style="color:white; font-size:larger;" OnClick="LinkButton8_Click" Visible="False">All Books</asp:LinkButton>
                         </li>
 
                         <li class="nav-item active">

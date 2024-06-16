@@ -168,24 +168,6 @@ namespace FindMyBooks
         protected global::System.Web.UI.WebControls.TextBox txtComment;
 
         /// <summary>
-        /// Label8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
-
-        /// <summary>
-        /// FileUploadImg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUploadImg;
-
-        /// <summary>
         /// updateBtn control.
         /// </summary>
         /// <remarks>

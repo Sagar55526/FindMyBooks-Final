@@ -18,14 +18,16 @@ namespace FindMyBooks
         {
             try
             {
-                if (Session["username"] == null || Session["username"].ToString() == "")
-                {
-                    Response.Write("<script>alert('Session Expired Login Again 1');</script>");
-                }
-                else
-                {
+                //if (Session["username"] == null || Session["username"].ToString() == "")
+                //{
+                //    Response.Write("<script>alert('Session Expired Login Again 1');</script>");
+                //}
+                //else
+                //{
                     getMemberDetailsById();
-                }
+                //}
+
+
 
                 if (!this.IsPostBack)
                 {

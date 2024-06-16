@@ -27,8 +27,21 @@ namespace FindMyBooks
                     LinkButton1.Visible = false;    //user log-in btn
                     LinkButton2.Visible = false;    //user sign-up btn
                     LinkButton7.Visible = true;     //hello user btn
+                    LinkButton6.Visible = false;    //admin login btn
                     LinkButton7.Text = "hello " + Session["username"].ToString();
-
+                }
+                else if (Session["role"].Equals("admin"))
+                {
+                    LinkButton4.Visible = false;     //add books btn
+                    LinkButton5.Visible = false;     //my books btn
+                    LinkButton3.Visible = true;     //Logout btn
+                    LinkButton1.Visible = false;    //user log-in btn
+                    LinkButton2.Visible = false;    //user sign-up btn
+                    LinkButton7.Visible = true;     //hello user btn
+                    LinkButton8.Visible = true;     //All books btn
+                    LinkButton9.Visible = true;     //User lists btn
+                    LinkButton6.Visible = false;    //admin login btn
+                    LinkButton7.Text = "hello " + Session["username"].ToString();
                 }
             }
             catch (Exception ex)
@@ -65,7 +78,7 @@ namespace FindMyBooks
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
             Session["username"] = "";
-            Session["fullname"] = "";
+            Session["fullname"] = ""; 
             Session["role"] = "";
             Session["status"] = "";
             LinkButton4.Visible = false;    //add books btn
@@ -89,6 +102,17 @@ namespace FindMyBooks
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
             Response.Redirect("myBooks.aspx");
+        }
+        
+        //handler for my books button.
+        protected void LinkButton8_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("allBooksAdmin.aspx");
+        }
+
+        protected void LinkButton9_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("userListAdmin.aspx");
         }
     }
 }

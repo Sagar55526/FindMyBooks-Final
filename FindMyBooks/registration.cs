@@ -19,7 +19,6 @@ namespace FindMyBooks
     public partial class registration : System.Web.UI.Page
     {
         readonly string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
-        private string password;
         //DataTable dt = new DataTable();
         //static int sentOtp = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -67,30 +66,25 @@ namespace FindMyBooks
             {
                 // Generate a temporary password
                 Random rand = new Random();
-                string password = "FMB" + rand.Next(1000, 9999).ToString(); // Generates a random number between 1000 and 9999
+                string password = "FMB" + rand.Next(1000, 9999).ToString();
+
+
+                //below code demonstrate use of twilio sms sender.
+                //var accountSid = "ACd9a5f984bc90bfeafb745f3a958e3ce5";
+                //var authToken = "39f7ba8b2d03440939ae0d9c35711d28";
+                //TwilioClient.Init(accountSid, authToken);
+
+                //string phoneNumber = "+91 " + txtPhone.Text;
+
+                //var messageOptions = new CreateMessageOptions(new PhoneNumber(phoneNumber));
+                //messageOptions.From = new PhoneNumber("+13344534781");
+                //messageOptions.Body = "🔐 Welcome to our platform! Your registration is complete. \n 📝 Username: " + txtPhone.Text + "\n 🔑 Password: " + password + "\n For security reasons, please change your password upon logging in for the first time. \n If you have any questions, feel free to contact us at 9699031859. \n Happy exploring! \n Regards FindMyBooks"; 
+
+                //var message = MessageResource.Create(messageOptions);
+                //Response.Write("Message SID: " + message.Sid);
 
                 userSignUp(password);
 
-                //below code demonstrate use of twilio sms sender.
-                var accountSid = "ACa5c5ac67aa23ea6eb2abcbfe892a1642";
-                var authToken = "c14749508ac28623e21a13b1c8517da0";
-                TwilioClient.Init(accountSid, authToken);
-
-                string phoneNumber = "+91-" + txtPhone.Text;
-
-                var messageOptions = new CreateMessageOptions(new PhoneNumber(phoneNumber));
-                messageOptions.From = new PhoneNumber("+13343674856");
-                messageOptions.Body = "🔐 Welcome to our platform! Your registration is complete. \n 📝 Username: " + txtPhone.Text + "\n 🔑 Temporary Password: " + password + "\n For security reasons, please change your password upon logging in for the first time. \n If you have any questions, feel free to contact us at 9699031859. \n Happy exploring! \n Regards FindMyBooks"; 
-                //messageOptions.Body = "📝 Username: " + txtPhone.Text; 
-                //messageOptions.Body = "🔑 Temporary Password: " + password;
-                //messageOptions.Body = "For security reasons, please change your password upon logging in for the first time.";
-                //messageOptions.Body = "If you have any questions, feel free to contact us at 9699031859"; 
-                //messageOptions.Body = "Happy exploring!"; 
-                //messageOptions.Body = "Regards FindMyBooks";
-
-
-                var message = MessageResource.Create(messageOptions);
-                Response.Write("Message SID: " + message.Sid);
             }
         }
 
@@ -128,14 +122,15 @@ namespace FindMyBooks
 
         void userSignUp(string password)
         {
+            Response.Write("<script>alert('" + password + "')</script>");
             SqlConnection con = new SqlConnection(strcon);
             if (con.State == ConnectionState.Closed)
             {
                 con.Open();
             }
             string strpass = encryptpass(password);
-            SqlCommand cmd = new SqlCommand("insert into tbl_user_master (stdFirstName, stdLastName, stdPhoneNo, stdEmail, stdAddress, stdCollege, stdDegree, stdYear, stdDept, stdUserName, password) " +
-                "values(@first_name, @last_name, @phone, @email, @address, @college_name, @degree_name, @academic_year, @dept_name, @user_name, @password)", con);
+            SqlCommand cmd = new SqlCommand("insert into tbl_user_master (stdFirstName, stdLastName, stdPhoneNo, stdEmail, stdAddress, stdCollege, stdDegree, stdYear, stdDept, stdUserName, password, date, status) " +
+                "values(@first_name, @last_name, @phone, @email, @address, @college_name, @degree_name, @academic_year, @dept_name, @user_name, @password, @date, @status)", con);
 
 
             cmd.Parameters.AddWithValue("@first_name", txtFirstName.Text.Trim());
@@ -149,10 +144,12 @@ namespace FindMyBooks
             cmd.Parameters.AddWithValue("@dept_name", ddlDepartment.SelectedItem != null ? ddlDepartment.SelectedItem.Text : "");
             cmd.Parameters.AddWithValue("@user_name", txtPhone.Text.Trim());
             cmd.Parameters.AddWithValue("@password", strpass);
+            cmd.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/MM/yyyy"));
+            cmd.Parameters.AddWithValue("@status", "Active");
 
             cmd.ExecuteNonQuery();
             con.Close();
-            Response.Write("<script>alert('Sign up successfully')</script>");
+            
             Response.Redirect("userLogin.aspx");
         }
 

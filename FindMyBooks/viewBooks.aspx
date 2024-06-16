@@ -20,7 +20,6 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mt-3">
                 <li class="breadcrumb-item"><a href="homePage.aspx">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page"><a href="buyBooks.aspx">Buy Books</a></li>
                 <li class="breadcrumb-item active" aria-current="page">View Books</li>
             </ol>
         </nav>
@@ -222,8 +221,8 @@
                     <div class="row">
                         <div class="col-md-3 mx-auto">
                             <center>
-                                <div class="form-group">
-                                    <asp:Button Class="btn btn-success btn-lg btn-block" ID="addBtn" runat="server" Text="Buy" OnClick="addBtn_Click" />
+                                <div class=form-group">
+                                    <asp:Button Class="btn btn-success btn-lg btn-block" ID="addBtn" runat="server" Text="Buy" Visible="false" OnClick="addBtn_Click" />
                                 </div>
                             </center>
                         </div>
@@ -240,43 +239,41 @@
     </section>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-     <script>
-         function OpenPaymentWindow(key, amountInSubunits, currency, name, descritpion, imageLogo, orderId, profileName, profileEmail, profileMobile, notes) {
-             notes = $.parseJSON(notes);
-             var options = {
-                 "key": key, // Enter the Key ID generated from the Dashboard
-                 "amount": amountInSubunits, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-                 "currency": currency,
-                 "name": name,
-                 "description": descritpion,
-                 "image": imageLogo,
-                 "order_id": orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-                 "handler": function (response) {
-                     window.location.href = "paymentSuccessfull.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;
-                     //alert(response.razorpay_payment_id);
-                     //alert(response.razorpay_order_id);
-                     //alert(response.razorpay_signature)
-                 },
-                 "prefill": {
-                     "name": profileName,
-                     "email": profileEmail,
-                     "contact": profileMobile
-                 },
-                 "notes": notes,
-                 "theme": {
-                     "color": "#F37254"
-                 }
-             };
-             var rzp1 = new Razorpay(options);
-             rzp1.open();
-             rzp1.on('payment.failed', function (response) {
-                 console.log(response.error);
-                 /*alert("Oops, something went wrong and payment failed. Please try again later");*/
-                 window.location.href = "paymentFailed.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;
-             });
-         }
+<script>
+    function OpenPaymentWindow(key, amountInSubunits, currency, name, descritpion, imageLogo, orderId, profileName, profileEmail, profileMobile, notes, bookId) {
+        /*alert("Book ID: " + bookId)*/
+        notes = $.parseJSON(notes);
+        var options = {
+            "key": key,
+            "amount": amountInSubunits,
+            "currency": currency,
+            "name": name,
+            "description": descritpion,
+            "image": imageLogo,
+            "order_id": orderId,
+            "bookId": bookId, // Pass bookId as a parameter
+            "handler": function (response) {
+                window.location.href = "paymentSuccessfull.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id + "&bookId=" + bookId;
+            },
+            "prefill": {
+                "name": profileName,
+                "email": profileEmail,
+                "contact": profileMobile
+            },
+            "notes": notes,
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+        rzp1.on('payment.failed', function (response) {
+            console.log(response.error);
+            window.location.href = "paymentFailed.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;
+        });
+    }
+</script>
 
-     </script>
 
 </asp:Content>
 

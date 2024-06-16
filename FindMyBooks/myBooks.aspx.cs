@@ -47,7 +47,6 @@ namespace FindMyBooks
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
 
-
             }
             catch (Exception ex)
             {
@@ -67,5 +66,34 @@ namespace FindMyBooks
 
             Response.Redirect("~/updateMyBook.aspx?bookID=" + bookID);
         }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                {
+                    int statusColumnIndex = 2; 
+                    string status = e.Row.Cells[statusColumnIndex].Text;
+
+                    if (status == "Sold")
+                    {
+                        e.Row.BackColor = System.Drawing.Color.PaleVioletRed;
+                        Button btnUpdate = e.Row.FindControl("btnUpdate") as Button;
+
+                        if (btnUpdate != null)
+                        {
+                            btnUpdate.Text = "View";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }
+
+
     }
 }

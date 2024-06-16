@@ -17,7 +17,7 @@
                 <li class="breadcrumb-item"><a href="homePage.aspx">Home</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Buy Books</li>
             </ol>
-        </nav>
+        </nav>a
     </section>
 
     <asp:sqldatasource id="sqldatasource1" runat="server" connectionstring="<%$ connectionstrings:findmybooksconnectionstring %>" selectcommand="select [subjectbook], [publicationid], [bookcommentid], [costbooks], [departmentid], [yearid], [date] from [tbl_new_book]"></asp:sqldatasource>

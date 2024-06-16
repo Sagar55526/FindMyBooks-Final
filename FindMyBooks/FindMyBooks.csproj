@@ -118,6 +118,8 @@
   <ItemGroup>
     <Content Include="addBooks.aspx" />
     <Content Include="adminLogin.aspx" />
+    <Content Include="adminUserProfile.aspx" />
+    <Content Include="allBooksAdmin.aspx" />
     <Content Include="buyBooks.aspx" />
     <Content Include="CustomStyleSheet.css" />
     <Content Include="Encrypt_Decrypt.aspx" />
@@ -128,6 +130,7 @@
     <Content Include="ReadMe.html" />
     <Content Include="registration.aspx" />
     <Content Include="updateMyBook.aspx" />
+    <Content Include="userListAdmin.aspx" />
     <Content Include="userLogin.aspx" />
     <Content Include="userProfile.aspx" />
     <Content Include="viewBooks.aspx" />
@@ -147,6 +150,20 @@
     </Compile>
     <Compile Include="adminLogin.aspx.designer.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="adminUserProfile.aspx.cs">
+      <DependentUpon>adminUserProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="adminUserProfile.aspx.designer.cs">
+      <DependentUpon>adminUserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="allBooksAdmin.aspx.cs">
+      <DependentUpon>allBooksAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="allBooksAdmin.aspx.designer.cs">
+      <DependentUpon>allBooksAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="buyBooks.aspx.cs">
       <DependentUpon>buyBooks.aspx</DependentUpon>
@@ -212,6 +229,13 @@
     </Compile>
     <Compile Include="updateMyBook.aspx.designer.cs">
       <DependentUpon>updateMyBook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="userListAdmin.aspx.cs">
+      <DependentUpon>userListAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userListAdmin.aspx.designer.cs">
+      <DependentUpon>userListAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="userLogin.aspx.cs">
       <DependentUpon>userLogin.aspx</DependentUpon>

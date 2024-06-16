@@ -20,16 +20,4 @@ BEGIN
     SET @startYear = @startYear + 1;
 END;
 <!---------------SQL query for academic year values END----------------->
-SqlCommand cmd = new SqlCommand("insert into tbl_new_book(departmentID, yearID, subjectBook, publicationID, bookCommentID, costBooks, status, comment) " +
-                        "values(@departmentID, @yearID, @subjectBook, @publicationID, @bookCommentID, @costBooks, @status, @comment)", con);
 
-                    cmd.Parameters.AddWithValue("@departmentID", ddlDeptName.SelectedValue != null ? ddlDeptName.SelectedValue : "");
-                    cmd.Parameters.AddWithValue("@yearID", ddlAcademicYear.SelectedValue != null ? ddlAcademicYear.SelectedValue : "");
-                    cmd.Parameters.AddWithValue("@subjectBook", lstSubjectName.Items[i].ToString());
-                    cmd.Parameters.AddWithValue("@publicationID", ddlPublicationName.SelectedValue != null ? ddlPublicationName.SelectedValue : "");
-                    cmd.Parameters.AddWithValue("@bookCommentID", ddlBookComment.SelectedValue != null ? ddlBookComment.SelectedValue : "");
-                    cmd.Parameters.AddWithValue("@costBooks", txtCost.Text.Trim());
-                    cmd.Parameters.AddWithValue("@status", txtStatus.Text.Trim());
-                    cmd.Parameters.AddWithValue("@comment", txtComment.Text.Trim());
-
-                    cmd.ExecuteNonQuery();

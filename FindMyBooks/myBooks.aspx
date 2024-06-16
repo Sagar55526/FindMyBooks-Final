@@ -21,7 +21,7 @@
     <section>
         <div class="card mt-3 mb-3">
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FindMyBooksConnectionString %>" SelectCommand="SELECT * FROM [tbl_new_book]"></asp:SqlDataSource>
-            <asp:GridView class="table table-striped table-bordered gridview2 hover cell-border stripe ui celled table" ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+            <asp:GridView class="table table-striped table-bordered gridview2 hover cell-border stripe ui celled table" ID="GridView1" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="subjectBook" HeaderText="Subject Book" SortExpression="subjectBook" HeaderStyle-CssClass="GridHeader">
                         <HeaderStyle CssClass="GridHeader"></HeaderStyle>

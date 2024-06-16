@@ -146,15 +146,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <asp:Label ID="Label8" runat="server" Text="Image of book :"></asp:Label>
-                                            <div class="form-group">
-                                                <asp:FileUpload CssClass="form-control" ID="FileUploadImg" runat="server" />
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

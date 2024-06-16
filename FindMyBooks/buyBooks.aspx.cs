@@ -38,7 +38,7 @@ namespace FindMyBooks
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from tbl_new_book where stdID!='" + stdID + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from tbl_new_book where stdID!='" + stdID + "' and status = 'Available'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

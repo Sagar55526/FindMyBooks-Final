@@ -20,13 +20,22 @@ namespace FindMyBooks
         private const string _secret = "MyGqg0QmNhGe8aHHRFMH2zqH";
         private const decimal registrationAmount = 1;
         protected void Page_Load(object sender, EventArgs e)
-        {  
+        {
+            if (Session["role"] != null && Session["role"].ToString() == "admin")
+            {
+                addBtn.Visible = false;
+            }
+            else if (Session["role"] != null && Session["role"].ToString() == "user")
+            {
+                addBtn.Visible = true;
+            }
+
             if (!IsPostBack)
             {
                 txtCost.Text = registrationAmount.ToString();
 
                 // Execute this code only if the page is loaded for the first time
-                string bookID = Request.QueryString["bookID"]; 
+                string bookID = Request.QueryString["bookID"];
                 getSubjectList(bookID);
                 getBookDetailsById(bookID);
                 getMemberDetailsById(bookID);
@@ -112,7 +121,7 @@ namespace FindMyBooks
                     {
                         con.Open();
                     }
-                    using(SqlCommand cmd = new SqlCommand("select stdID from tbl_new_book where bookID = @bookID", con))
+                    using (SqlCommand cmd = new SqlCommand("select stdID from tbl_new_book where bookID = @bookID", con))
                     {
                         cmd.Parameters.AddWithValue("@bookID", bookID);
                         try
@@ -161,6 +170,7 @@ namespace FindMyBooks
             string imageLogo = "";
             string firstName = txtFirstName.Text;
             string profileEmail = txtEmail.Text;
+            string bookID = Request.QueryString["bookID"];
             Dictionary<string, string> notes = new Dictionary<string, string>()
     {
         { "note 1", "this is a payment note" }, { "note 2", "here another note, you can add max 15 notes" }
@@ -168,7 +178,7 @@ namespace FindMyBooks
 
             string orderId = CreateOrder(amountinSubunits, currency, notes);
 
-            string jsFunction = "OpenPaymentWindow('" + _key + "', '" + amountinSubunits + "', '" + currency + "', '" + name + "', '" + description + "', '" + imageLogo + "', '" + orderId + "', '" + firstName + "', '" + profileEmail + "', '" + profileEmail + "', '" + JsonConvert.SerializeObject(notes) + "');";
+            string jsFunction = "OpenPaymentWindow('" + _key + "', '" + amountinSubunits + "', '" + currency + "', '" + name + "', '" + description + "', '" + imageLogo + "', '" + orderId + "', '" + firstName + "', '" + profileEmail + "', '" + profileEmail + "', '" + JsonConvert.SerializeObject(notes) + "', '" + bookID + "');";
             ClientScript.RegisterStartupScript(this.GetType(), "OpenPaymentWindow", jsFunction, true);
         }
 
@@ -199,7 +209,6 @@ namespace FindMyBooks
                 throw;
             }
         }
-
 
 
         private void Filldepartment()
@@ -271,6 +280,22 @@ namespace FindMyBooks
             }
         }
 
-        
+        //protected void deleteBtn_Click(object sender, EventArgs e, string bookID)
+        //{
+        //    //Button btn = (Button)sender;
+        //    //string bookID = btn.CommandArgument;
+        //    SqlConnection con = new SqlConnection(strcon);
+        //    if (con.State == ConnectionState.Closed)
+        //    {
+        //        con.Open();
+        //    }
+        //    using (SqlCommand cmd = new SqlCommand("delete from tbl_new_book where bookID = @bookID", con))
+        //    {
+        //        cmd.Parameters.AddWithValue("@bookID", bookID);
+        //        cmd.ExecuteNonQuery();
+        //        con.Close();
+        //        Response.Write("<script>alert('book deleted successfully.!!!');</script>");
+        //    }
+        //}
     }
 }

@@ -41,10 +41,20 @@
                                     </div>
                                 </div>
                             </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="col-md-2">
+                                            <label runat="server">Book Id :</label>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <asp:Label runat="server" ID="lblBookId" Font-Bold="True" Font-Size="Larger" />
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
                             <div class="col-md-5">
-                            <div class="row">
-                                <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
                                     <img src="imgs/payment%20success.gif" />
                                 </div>
                             </div>
