@@ -68,20 +68,7 @@ namespace FindMyBooks
                 Random rand = new Random();
                 string password = "FMB" + rand.Next(1000, 9999).ToString();
 
-
-                //below code demonstrate use of twilio sms sender.
-                //var accountSid = "ACd9a5f984bc90bfeafb745f3a958e3ce5";
-                //var authToken = "39f7ba8b2d03440939ae0d9c35711d28";
-                //TwilioClient.Init(accountSid, authToken);
-
-                //string phoneNumber = "+91 " + txtPhone.Text;
-
-                //var messageOptions = new CreateMessageOptions(new PhoneNumber(phoneNumber));
-                //messageOptions.From = new PhoneNumber("+13344534781");
-                //messageOptions.Body = "🔐 Welcome to our platform! Your registration is complete. \n 📝 Username: " + txtPhone.Text + "\n 🔑 Password: " + password + "\n For security reasons, please change your password upon logging in for the first time. \n If you have any questions, feel free to contact us at 9699031859. \n Happy exploring! \n Regards FindMyBooks"; 
-
-                //var message = MessageResource.Create(messageOptions);
-                //Response.Write("Message SID: " + message.Sid);
+s
 
                 userSignUp(password);
 
