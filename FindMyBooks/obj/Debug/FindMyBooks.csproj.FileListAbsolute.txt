@@ -245,3 +245,7 @@ C:\Users\ahire\Desktop\web-projects\.NET projects\git clone\FindMyBooks\FindMyBo
 C:\Users\ahire\Desktop\web-projects\.NET projects\git clone\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.csproj.CoreCompileInputs.cache
 C:\Users\ahire\Desktop\web-projects\.NET projects\git clone\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.dll
 C:\Users\ahire\Desktop\web-projects\.NET projects\git clone\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.pdb
+C:\Users\ahire\Desktop\web-projects\.NET projects\FMB Final\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.csproj.AssemblyReference.cache
+C:\Users\ahire\Desktop\web-projects\.NET projects\FMB Final\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.csproj.CoreCompileInputs.cache
+C:\Users\ahire\Desktop\web-projects\.NET projects\FMB Final\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.dll
+C:\Users\ahire\Desktop\web-projects\.NET projects\FMB Final\FindMyBooks\FindMyBooks\obj\Debug\FindMyBooks.pdb

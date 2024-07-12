@@ -1,4 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="viewBooks.aspx.cs" Inherits="FindMyBooks.viewBooks" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="viewBooks.aspx.cs" Inherits="FindMyBooks.viewBooks" %>
+
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
@@ -221,8 +223,18 @@
                     <div class="row">
                         <div class="col-md-3 mx-auto">
                             <center>
-                                <div class=form-group">
-                                    <asp:Button Class="btn btn-success btn-lg btn-block" ID="addBtn" runat="server" Text="Buy" Visible="false" OnClick="addBtn_Click" />
+                                <div class="form-group">
+                                    <asp:Button Class="btn btn-success btn-lg btn-block" ID="btnBuyOnline" runat="server" Text="Buy Online"/>
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3 mx-auto">
+                            <center>
+                                <div class="form-group">
+                                    <asp:Button Class="btn btn-success btn-lg btn-block" ID="btnBuy" runat="server" Text="Buy" OnClick="btnBuy_Click"/>
                                 </div>
                             </center>
                         </div>
@@ -237,9 +249,9 @@
 
             </div>
     </section>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <%--  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>--%>
 
-<script>
+<%--<script>
     function OpenPaymentWindow(key, amountInSubunits, currency, name, descritpion, imageLogo, orderId, profileName, profileEmail, profileMobile, notes, bookId) {
         /*alert("Book ID: " + bookId)*/
         notes = $.parseJSON(notes);
@@ -253,7 +265,7 @@
             "order_id": orderId,
             "bookId": bookId, // Pass bookId as a parameter
             "handler": function (response) {
-                window.location.href = "paymentSuccessfull.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id + "&bookId=" + bookId;
+                window.location.href = "paymentSuccessfull.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id + "&bookId=" + bookId ;
             },
             "prefill": {
                 "name": profileName,
@@ -272,7 +284,7 @@
             window.location.href = "paymentFailed.aspx?orderId=" + response.razorpay_order_id + "&paymentId=" + response.razorpay_payment_id;
         });
     }
-</script>
+</script>--%>
 
 
 </asp:Content>

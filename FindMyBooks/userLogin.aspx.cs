@@ -54,7 +54,7 @@ namespace FindMyBooks
                             Session["username"] = dr["stdUserName"].ToString();
                             Session["role"] = "user";
                             //Session["status"] = dr["status"].ToString(); 
-                            Session["stdID"] = dr["stdID"].ToString();
+                            Session["studentID"] = dr["stdID"].ToString();
                             Response.Redirect("buyBooks.aspx");
                         }
                         else

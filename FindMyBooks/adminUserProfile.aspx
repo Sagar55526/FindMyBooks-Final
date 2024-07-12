@@ -140,10 +140,21 @@
                             </div>
                         </div>
 
-                        <%--<hr />--%>
+<%--                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <asp:Button ID="btnAct" CssClass="btn btn-success mr-1" runat="server" text="Activate" OnClick="btnAct_Click"/>
+                                        <asp:Button ID="btnDeact" CssClass="btn btn-danger mr-1" runat="server" text="De-Activate" OnClick="btnDeact_Click"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>--%>
+
+                    <%--<hr />--%>
 
 
-                        <%-- <div class="row">
+                    <%-- <div class="row">
                             <div class="col-8 mx-auto">
                                 <center>
                                     <div class="form-group">        

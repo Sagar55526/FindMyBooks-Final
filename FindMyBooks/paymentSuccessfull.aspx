@@ -31,6 +31,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="col-md-2">
@@ -41,6 +42,17 @@
                                     </div>
                                 </div>
                             </div>
+
+                        <%--    <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-2">
+                                        <label runat="server">Student ID :</label>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <asp:Label runat="server" ID="lblCurrentUserID" Font-Bold="True" Font-Size="Larger" />
+                                    </div>
+                                </div>
+                            </div>--%>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-2">

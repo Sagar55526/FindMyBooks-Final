@@ -17,9 +17,6 @@ namespace FindMyBooks
         protected void Page_Load(object sender, EventArgs e)
         {
             string stdID = Request.QueryString["stdID"];
-            //FillYear();
-            //FillDDL();
-            //getMemberDetailsById(stdID);
 
             try
             {
@@ -67,6 +64,31 @@ namespace FindMyBooks
 
         }
 
+        protected void btnAct_Click(object sender, EventArgs e)
+        {
+            string stdID = Request.QueryString["stdID"];
+            if (!string.IsNullOrEmpty(stdID))
+            {
+                updateMemberStatus("Active", stdID);
+            }
+            else
+            {
+                Response.Write("<script>alert('Invalid student ID');</script>");
+            }
+        }
+
+        protected void btnDeact_Click(object sender, EventArgs e)
+        {
+            string stdID = Request.QueryString["stdID"];
+            if (!string.IsNullOrEmpty(stdID))
+            {
+                updateMemberStatus("De-activate", stdID);
+            }
+            else
+            {
+                Response.Write("<script>alert('Invalid student ID');</script>");
+            }
+        }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -138,22 +160,6 @@ namespace FindMyBooks
                         ddlCourseYear.Text = dt.Rows[0]["stdYear"].ToString();
                         ddlDepartment.Text = dt.Rows[0]["stdDept"].ToString();
                         Label10.Text = dt.Rows[0]["status"].ToString();
-                        //if (dt.Rows[0]["account_status"].ToString().Trim() == "active")
-                        //{
-                        //    Label10.Attributes.Add("class", "badge badge-pill badge-success");
-                        //}
-                        //else if (dt.Rows[0]["account_status"].ToString().Trim() == "pending")
-                        //{
-                        //    Label10.Attributes.Add("class", "badge badge-pill badge-warning");
-                        //}
-                        //else if (dt.Rows[0]["account_status"].ToString().Trim() == "deactive")
-                        //{
-                        //    Label10.Attributes.Add("class", "badge badge-pill badge-danger");
-                        //}
-                        //else
-                        //{
-                        //    Label10.Attributes.Add("class", "badge badge-pill badge-info");
-                        //}
                     }
                 }
             }
@@ -163,6 +169,34 @@ namespace FindMyBooks
             }
         }
 
+        void updateMemberStatus(string status, string stdID)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(strcon))
+                {
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    string query = "UPDATE tbl_user_master SET status = @status WHERE stdID = @stdID";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@status", status);
+                        cmd.Parameters.AddWithValue("@stdID", stdID);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                Response.Write("<script>alert('Member Status Updated');</script>");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
+        }
+
+        
 
         //private void FillDDL()
         //{
