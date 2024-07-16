@@ -4,6 +4,7 @@
 ![Screenshot 2024-07-16 221833](https://github.com/user-attachments/assets/71f6c1a4-487c-446c-8c94-07dd6877cbb9)
 ![Screenshot 2024-07-16 221904](https://github.com/user-attachments/assets/7677c445-a68f-4a74-a517-d5714e3662f6)
 ![Screenshot 2024-07-16 221915](https://github.com/user-attachments/assets/2725ba60-df8d-43d5-8ec7-6629ed6fadcb)
+Admin siede panel:
 ![Screenshot 2024-07-16 221938](https://github.com/user-attachments/assets/7f3a5fbd-2a1e-40bc-abb2-27026475c352)
 ![Screenshot 2024-07-16 221952](https://github.com/user-attachments/assets/62698e82-9531-44f7-b369-b5b735b84cfe)
 
