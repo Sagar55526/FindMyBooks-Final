@@ -16,23 +16,23 @@ namespace FindMyBooks
     public partial class viewBooks : System.Web.UI.Page
     {
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString;
-        //private const string _key = "rzp_test_fXXypA013Rnzbs";
-        //private const string _secret = "MyGqg0QmNhGe8aHHRFMH2zqH";
-        //private const decimal registrationAmount = 1;
+        private const string _key = "rzp_test_fXXypA013Rnzbs";
+        private const string _secret = "MyGqg0QmNhGe8aHHRFMH2zqH";
+        private const decimal registrationAmount = 1;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["role"] != null && Session["role"].ToString() == "admin")
             {
-                btnBuyOnline.Visible = false;
+                addBtn.Visible = false;
             }
             else if (Session["role"] != null && Session["role"].ToString() == "user")
             {
-                btnBuyOnline.Visible = true;
+                addBtn.Visible = true;
             }
 
             if (!IsPostBack)
             {
-                //txtCost.Text = registrationAmount.ToString();
+                txtCost.Text = registrationAmount.ToString();
 
                 // Execute this code only if the page is loaded for the first time
                 string bookID = Request.QueryString["bookID"];
@@ -161,54 +161,54 @@ namespace FindMyBooks
 
 
         //event handler for buy books btn.
-    //    protected void addBtn_Click(object sender, EventArgs e)
-    //    {
-    //        decimal amountinSubunits = decimal.Parse(txtCost.Text) * 100;
-    //        string currency = "INR";
-    //        string name = "FindMyBooks";
-    //        string description = "Razorpay Payment Gateway Demo";
-    //        string imageLogo = "";
-    //        string firstName = txtFirstName.Text;
-    //        string profileEmail = txtEmail.Text;
-    //        string bookID = Request.QueryString["bookID"];
-    //        Dictionary<string, string> notes = new Dictionary<string, string>()
-    //{
-    //    { "note 1", "this is a payment note" }, { "note 2", "here another note, you can add max 15 notes" }
-    //};
+            protected void addBtn_Click(object sender, EventArgs e)
+        {
+            decimal amountinSubunits = decimal.Parse(txtCost.Text) * 100;
+            string currency = "INR";
+            string name = "FindMyBooks";
+            string description = "Razorpay Payment Gateway Demo";
+            string imageLogo = "";
+            string firstName = txtFirstName.Text;
+            string profileEmail = txtEmail.Text;
+            string bookID = Request.QueryString["bookID"];
+            Dictionary<string, string> notes = new Dictionary<string, string>()
+        {
+            { "note 1", "this is a payment note" }, { "note 2", "here another note, you can add max 15 notes" }
+        };
 
-    //        string orderId = CreateOrder(amountinSubunits, currency, notes);
+            string orderId = CreateOrder(amountinSubunits, currency, notes);
 
-    //        string jsFunction = "OpenPaymentWindow('" + _key + "', '" + amountinSubunits + "', '" + currency + "', '" + name + "', '" + description + "', '" + imageLogo + "', '" + orderId + "', '" + firstName + "', '" + profileEmail + "', '" + profileEmail + "', '" + JsonConvert.SerializeObject(notes) + "', '" + bookID + "');";
-    //        ClientScript.RegisterStartupScript(this.GetType(), "OpenPaymentWindow", jsFunction, true);
-    //    }
+            string jsFunction = "OpenPaymentWindow('" + _key + "', '" + amountinSubunits + "', '" + currency + "', '" + name + "', '" + description + "', '" + imageLogo + "', '" + orderId + "', '" + firstName + "', '" + profileEmail + "', '" + profileEmail + "', '" + JsonConvert.SerializeObject(notes) + "', '" + bookID + "');";
+            ClientScript.RegisterStartupScript(this.GetType(), "OpenPaymentWindow", jsFunction, true);
+        }
 
 
 
-        //private string CreateOrder(decimal amountinSubunits, string currency, Dictionary<string, string> notes)
-        //{
-        //    try
-        //    {
-        //        int paymentCapture = 1;
+        private string CreateOrder(decimal amountinSubunits, string currency, Dictionary<string, string> notes)
+        {
+            try
+            {
+                int paymentCapture = 1;
 
-        //        RazorpayClient client = new RazorpayClient(_key, _secret);
-        //        Dictionary<string, object> options = new Dictionary<string, object>();
-        //        options.Add("amount", amountinSubunits);
-        //        options.Add("currency", currency);
-        //        options.Add("payment_capture", paymentCapture);
-        //        options.Add("notes", notes);
+                RazorpayClient client = new RazorpayClient(_key, _secret);
+                Dictionary<string, object> options = new Dictionary<string, object>();
+                options.Add("amount", amountinSubunits);
+                options.Add("currency", currency);
+                options.Add("payment_capture", paymentCapture);
+                options.Add("notes", notes);
 
-        //        System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
-        //        System.Net.ServicePointManager.Expect100Continue = false;
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                System.Net.ServicePointManager.Expect100Continue = false;
 
-        //        Order orderResponse = client.Order.Create(options);
-        //        var orderId = orderResponse.Attributes["id"].ToString();
-        //        return orderId;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw;
-        //    }
-        //}
+                Order orderResponse = client.Order.Create(options);
+                var orderId = orderResponse.Attributes["id"].ToString();
+                return orderId;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
 
         private void Filldepartment()
@@ -288,6 +288,24 @@ namespace FindMyBooks
             emailHelper.SendOtpEmail(recipientEmail, otp);
             Response.Write("<script>alert('OTP has been sent.');</script>");
         }
+
+        protected void BuyBtn_Click(object sender, EventArgs e)
+        {
+            string recipientEmail = "sdahire010821@kkwagh.edu.in";
+            string otp = EmailHelper.GenerateOtp();
+            var emailHelper = new EmailHelper("smtp.gmail.com", 587, "ahiresagar06130@gmail.com", "utme zvqt xgdd vgzo");
+            emailHelper.SendOtpEmail(recipientEmail, otp);
+            Response.Write("<script>alert('OTP has been sent.');</script>");
+        }
+
+        //protected void btnBuy_Click(object sender, EventArgs e)
+        //{
+        //    string recipientEmail = "sdahire010821@kkwagh.edu.in";
+        //    string otp = EmailHelper.GenerateOtp();
+        //    var emailHelper = new EmailHelper("smtp.gmail.com", 587, "ahiresagar06130@gmail.com", "utme zvqt xgdd vgzo");
+        //    emailHelper.SendOtpEmail(recipientEmail, otp);
+        //    Response.Write("<script>alert('OTP has been sent.');</script>");
+        //}
 
 
 

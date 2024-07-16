@@ -20,7 +20,9 @@
             <div class="card-body m-auto" style="position: relative;">
                 <img src="imgs/payment%20failed.gif" style="width: 80%;" />
             </div>
+
                 </div>
+            <a class="mb-3 ml-5" href="homePage.aspx">Home</a>
         </div>
     </div>
     </div>

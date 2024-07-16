@@ -72,6 +72,7 @@
                             </div>
                                 </div>
                         </div>
+                        <a href="homePage.aspx">Home</a>
                     </div>
                 </div>
             </div>

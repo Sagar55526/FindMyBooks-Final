@@ -28,6 +28,7 @@ namespace FindMyBooks
                     LinkButton2.Visible = false;    //user sign-up btn
                     LinkButton7.Visible = true;     //hello user btn
                     LinkButton6.Visible = false;    //admin login btn
+                    LinkButton10.Visible = true;    //buy books btn
                     LinkButton7.Text = "hello " + Session["username"].ToString();
                 }
                 else if (Session["role"].Equals("admin"))
@@ -113,6 +114,11 @@ namespace FindMyBooks
         protected void LinkButton9_Click(object sender, EventArgs e)
         {
             Response.Redirect("userListAdmin.aspx");
+        }
+
+        protected void LinkButton10_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("buyBooks.aspx");
         }
     }
 }

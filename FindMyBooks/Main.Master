@@ -86,6 +86,9 @@
                             <asp:LinkButton class="nav-link" ID="LinkButton9" runat="server" style="color:white; font-size:larger;" Visible="False" OnClick="LinkButton9_Click">User List</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton10" runat="server" style="color:white; font-size:larger;" Visible="False" OnClick="LinkButton10_Click">Buy Books</asp:LinkButton>
+                        </li>
+                        <li class="nav-item active">
                             <asp:LinkButton class="nav-link" ID="LinkButton8" runat="server" style="color:white; font-size:larger;" OnClick="LinkButton8_Click" Visible="False">All Books</asp:LinkButton>
                         </li>
 
